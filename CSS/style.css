@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Proza+Libre&family=Source+Serif+Pro:wght@300;400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
     background-color: #CAC4CE;
+    overflow: hidden;
 }
 
 .container-1 {
@@ -29,6 +33,7 @@ body {
     margin-top: 15px;
     color: #725AC1;
     cursor: pointer;
+    font-family: 'Proza Libre', sans-serif;
 }
 
 .nav ul{
@@ -66,23 +71,25 @@ body {
 }
 
 .general-box h1{
-    padding-top: 20px;
-    padding-left: 55px;
-}
-.general-box h6{
+    padding-top: 40px;
     padding-left: 60px;
+
+    font-size: 60px;
 }
 .value {
-    padding-top: 20px;
+    padding-top: 40px;
     width: 90%;
     margin: 0 auto;
     display: grid;
-    grid-column: 2fr 2fr 1fr;
+    grid-column: 1fr 1fr 1fr;
 }
 .button {
     grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-.button a {
+.button button {
     display: block;
     padding: 12px 20px;
     background-color: #725AC1;
@@ -91,14 +98,26 @@ body {
     text-decoration: none;
     border: 1px solid #242038;
     border-radius: 24px;
-
+    font-size: 20px;
     color: #F7ECE1;
 }
 #Input1 {
     height: 40vh;
-    width: 90%
+    width: 90%;
+    resize: none;
 }
 #Input2 {
     height: 40vh;
-    width: 90%
+    width: 90%;
+    resize: none;
+    writing-mode: read;
+}
+
+#select1, #select2 {
+    width: 90%;
+    text-align: center;
+    min-height: 30px;
+    max-height: 100px;
+    border-radius: 8px 8px 0px 0px;
+    overflow-y: scroll;
 }

@@ -29,24 +29,46 @@
 
     <div class="container-2">
         <div class="general-box">
-            <h1>Titolo: Nome Base</h1>
-            <h6>Inserisci qui i valori da tradurre</h6>
-    
+            <h1>Conversione Binario/Intero</h1>    
             <div class="value">
-                <div class="input-1">
-                    <input type="text" name="Input1" id="Input1">
+                <div class="box-1">
+                    <div class="select">
+                        <select id="select1">
+                            <option value="Binario">Binario</option>
+                            <option value="Esadecimale">Esadecimale</option>
+                            <option value="Base64">Base64</option>
+                            <option value="Intero">Intero</option>
+                        </select>
+                    </div>
+                    <div class="input-1">
+                        <textarea name="Input1" id="Input1" cols="30" rows="10" onkeyup="Control(this)"></textarea>
+                    </div>
                 </div>
-                <div class="input-2">
-                    <input type="text" name="Input2" id="Input2">
+
+                <div class="box-2">
+                    <div class="select">
+                        <select id="select2">
+                            <option value="Binario">Binario</option>
+                            <option value="Esadecimale">Esadecimale</option>
+                            <option value="Base64">Base64</option>
+                            <option value="Intero">Intero</option>
+                        </select>
+                    </div>
+                    <div class="input-2">
+                        <textarea name="Input2" id="Input2" cols="30" rows="10" readonly="readonly"></textarea>
+                    </div>
                 </div>
                 
                 <div class="button">
-                    <a href="#">Converti</a>
-                    <a href="#">Inverti</a>
-                    <a href="#">Inverti</a>
+                    <button onclick="Converti()">Converti</button>
+                    <button onclick="Swap()">Inverti</button>
+                    <button onclick="Reset()">Reset</button>
                 </div>
-            </div>
+            </div> <!--Value-->
         </div>
     </div>
+
+    <!--Scripts-->
+    <script src="/JS/selection.js"></script>
 </body>
 </html>
