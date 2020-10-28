@@ -11,6 +11,12 @@ function Converti() {
             case "Intero": Conv_Bin_Int(txt);
         }
     }
+    if (from == "Intero") {
+        switch (to) {
+            case "Intero": Conv_Same(txt);
+            case "Binario": Conv_Int_Bin(txt);
+        }
+    }
 }
 
 function Reset(){
@@ -50,8 +56,8 @@ function Control(input) {
 function Conv_Bin_Int(txt){
     var arr = [];
     arr = txt.split(" ");
-    console.log(arr);
-    conversione = ""
+
+    let conversione = "";
 
     for (let j = 0; j < arr.length; j++){
         if (arr[j] == ""){
@@ -66,6 +72,30 @@ function Conv_Bin_Int(txt){
         }
 
         conversione += String(intero) + " ";
+    }
+
+    document.getElementById("Input2").value = conversione;
+}
+
+function Conv_Int_Bin(txt) {
+    let arr = [];
+    arr = txt.split(" ");
+    let conversione = "";
+
+    for (let j = 0; j < arr.length; j++){
+        if (arr[j] == ""){
+            continue;
+        }
+
+        let intero = Number(arr[j]);
+        let bin = "";
+
+        while (intero >= 1) {
+            bin = String(intero % 2) + bin;
+            intero = Math.floor(intero/2);
+        }
+
+        conversione += bin + " ";
     }
 
     document.getElementById("Input2").value = conversione;
