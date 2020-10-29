@@ -3,24 +3,32 @@ function Converti() {
     var from = document.getElementById("select1").value;
     var to = document.getElementById("select2").value;
     
+    console.log(from, to);
+
     var txt = document.getElementById("Input1").value;
 
     if (from == "Binario") {
         switch (to){
-            case "Binario": Conv_Same(txt);
-            case "Intero": Conv_Bin_Int(txt);
-        }
-    }
-    if (from == "Intero") {
-        switch (to) {
-            case "Intero": Conv_Same(txt);
-            case "Binario": Conv_Int_Bin(txt);
-            case "Esadecimale": Conv_Int_Esa(txt);
+            case "Binario": Output(Conv_Same(txt)); break;
+            case "Esadecimale": Output(Conv_Bin_Esa(txt)); break;
+            case "Ascii": Output(Conv_Bin_Ascii(txt)); break;
+            case "Intero": Output(Conv_Bin_Int(txt)); break;
         }
     }
     if (from == "Esadecimale") {
-        switch (to) {
-            case "Intero": Conv_Esa_Int(txt);
+        switch (to){
+            case "Binario": Output(Conv_Esa_Bin(txt)); break;
+            case "Esadecimale": Output(Conv_Same(txt)); break;
+            case "Ascii": Output(Conv_Esa_Ascii(txt)); break;
+            case "Intero": Output(Conv_Esa_Int(txt)); break;
+        }
+    }
+    if (from == "Intero") {
+        switch (to){
+            case "Binario": Output(Conv_Int_Bin(txt)); break;
+            case "Esadecimale": Output(Conv_Int_Esa(txt)); break;
+            case "Base64": Output(Conv_Int_Ascii(txt)); break;
+            case "Intero": Output(Conv_Same(txt)); break;
         }
     }
 }
@@ -44,6 +52,10 @@ function Swap() {
 
     input1.value = input2.value;
     input2.value = temp1;
+}
+
+function Output(txt) {
+    document.getElementById("Input2").value = txt;
 }
 
 function Esa_Int(chr) {
@@ -95,6 +107,12 @@ function Control(input) {
 
 //Funzioni di conversione
 
+function Conv_Same(txt) {
+    let input1 = document.getElementById("Input1");
+    let input2 = document.getElementById("Input2");
+
+    return input1.value;
+}
 
 function Conv_Bin_Int(txt){
     var arr = [];
@@ -117,7 +135,7 @@ function Conv_Bin_Int(txt){
         conversione += String(intero) + " ";
     }
 
-    document.getElementById("Input2").value = conversione;
+    return conversione;
 }
 
 function Conv_Int_Bin(txt) {
@@ -141,7 +159,7 @@ function Conv_Int_Bin(txt) {
         conversione += bin + " ";
     }
 
-    document.getElementById("Input2").value = conversione;
+    return conversione;
 }
 
 
@@ -163,7 +181,7 @@ function Conv_Esa_Int(txt) {
         conversione += intero + " ";
     }
 
-    document.getElementById("Input2").value = conversione;
+    return conversione;
 }
 
 function Conv_Int_Esa(txt) {
@@ -181,10 +199,43 @@ function Conv_Int_Esa(txt) {
         conversione += esa + " ";
     }
 
-    document.getElementById("Input2").value = conversione;
+    return conversione;
 }
 
 function Esa_Ric(n) {
     if (n < 16) return String(Int_Esa(n));
     else return Esa_Ric(Math.floor(n / 16)) + Esa_Ric(n % 16);
+}
+
+function Conv_Bin_Esa(txt){
+    let int = Conv_Bin_Int(txt);
+    return Conv_Int_Esa(int);
+}
+
+function Conv_Esa_Bin(txt){
+    let int = Conv_Esa_Int(txt);
+    return Conv_Int_Bin(int);
+}
+
+function Conv_Int_Ascii(txt){
+    
+}
+
+function Conv_Ascii_Int(txt){
+
+}
+
+function Conv_Bin_Ascii(txt){
+
+}
+
+function Conv_Ascii_Bin(txt){
+
+}
+
+function Conv_Esa_Ascii(txt){
+
+}
+function Conv_Ascii_Esa(txt){
+
 }

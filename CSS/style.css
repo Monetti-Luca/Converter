@@ -105,12 +105,16 @@ body {
     height: 40vh;
     width: 90%;
     resize: none;
+    font-size: 20px;
+    padding: 10px;
 }
 #Input2 {
     height: 40vh;
     width: 90%;
     resize: none;
     writing-mode: read;
+    font-size: 20px;
+    padding: 10px;
 }
 
 #select1, #select2 {
